@@ -1,0 +1,22 @@
+---
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    env_file: .env
+    volumes:
+      - './apps/back:/usr/src/app'
+      - '.env:/usr/src/app/.env'
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.21.3-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./public:/usr/src/app/public
+    restart: unless-stopped

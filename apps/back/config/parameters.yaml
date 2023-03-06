@@ -1,0 +1,12 @@
+parameters:
+    env(DEFAULT_URL): 'https://fr.wikipedia.org/wiki/Erreur_HTTP_404'
+    defaultUrl: '%env(DEFAULT_URL)%'
+
+    pdfGeneratorOptions:
+        copies: 3
+        no-collate: true
+        page-size: A5
+        orientation: Landscape
+
+    secret: '%env(APP_SECRET)%'
+    kernel.secret: '%secret%'

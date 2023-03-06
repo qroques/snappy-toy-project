@@ -1,0 +1,24 @@
+imports:
+    - { resource: parameters.yaml }
+    - { resource: 'services/' }
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Application/'
+            - '../src/Domain/'
+
+    # Application\:
+    #     resource: '../src/Application/'
+
+    # Domain\:
+    #     resource: '../src/Domain/'
+

@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    Application\Controller\:
+        resource: '../../src/Application/Controller/*'
+        tags: ['controller.service_arguments']
+
+    Application\Controller\DefaultController:
+        arguments:
+            $defaultUrl: '%defaultUrl%'

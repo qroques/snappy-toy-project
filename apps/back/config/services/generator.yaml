@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    Domain\Generator\PdfInterface:
+        class: 'Application\Generator\Pdf'
+        arguments:
+            $options: '%pdfGeneratorOptions%'

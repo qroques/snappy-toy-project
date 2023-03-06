@@ -1,0 +1,7 @@
+default:
+    path: /
+    controller: Application\Controller\DefaultController
+
+twig_rendering:
+    path: /twig
+    controller: Application\Controller\TwigRenderingController
