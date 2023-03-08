@@ -2,6 +2,6 @@ default:
     path: /
     controller: Application\Controller\DefaultController
 
-twig_rendering:
-    path: /twig
-    controller: Application\Controller\TwigRenderingController
+custom_html:
+    path: /custom-html
+    controller: Application\Controller\CustomHtmlController

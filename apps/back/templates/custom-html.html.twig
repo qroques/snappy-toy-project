@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Custom html</h1>
+    <form method="POST">
+        <label for="options">Options (as json format):</label>
+        <textarea name="options" id="options" cols="50" rows="10"></textarea>
+
+        <label for="html">Your html to convert:</label>
+        <textarea name="html" id="html" cols="100" rows="30"></textarea>
+        
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
