@@ -6,20 +6,25 @@ FROM php:8.2-fpm
 
 RUN apt-get update \
     && apt-get install -y \
+            wget \
             zlib1g-dev \
             libzip-dev \
             wkhtmltopdf \
             fonts-wqy-microhei \
             ttf-wqy-microhei \
             fonts-wqy-zenhei \
-            ttf-wqy-zenhei
+            ttf-wqy-zenhei 
 
-RUN docker-php-ext-install pdo_mysql zip
+RUN docker-php-ext-install pdo_mysql zip sockets
 
 RUN pecl install apcu-5.1.17
-RUN docker-php-ext-enable apcu
+RUN docker-php-ext-enable apcu sockets
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+RUN wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_110.0.5481.177-1_amd64.deb
+
+RUN apt install -y ./google-chrome-stable_110.0.5481.177-1_amd64.deb
 
 WORKDIR /usr/src/app
 
